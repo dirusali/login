@@ -13,17 +13,58 @@ $ cd ~/login
 $ virtualenv myenv
 ```
 
-Activate your environment and start a django project:
+Activate your environment, install requirements and start a django project:
 
 ```
 $ source myenv/bin/activate
+$ pip install -r requirements.txt
 $ django-admin.py startproject login ~/login
 $ python manage.py startapp home
 ```
 
-Update your settings to connect your database:
+Update your settings apps and connect your database:
 
 ```
+INSTALLED_APPS = [
+ ‘django.contrib.admin’,
+ ‘django.contrib.auth’,
+ ‘django.contrib.contenttypes’,
+ ‘django.contrib.sessions’,
+ ‘django.contrib.messages’,
+ ‘django.contrib.staticfiles’,
+ ‘django.contrib.sites’,   # <--
+ ‘social_app’,   # <--
+ 
+ ‘allauth’,   # <--
+ ‘allauth.account’,   # <--
+ ‘allauth.socialaccount’,   # <--
+ ‘allauth.socialaccount.providers.google’,   # <--
+]
+
+AUTHENTICATION_BACKENDS = (
+ ‘django.contrib.auth.backends.ModelBackend’,
+ ‘allauth.account.auth_backends.AuthenticationBackend’,
+ )
+ 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = ‘/’
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
