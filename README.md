@@ -12,13 +12,17 @@ $ cd ~/login
 
 $ virtualenv myenv
 
+
 Activate your environment and start a django project:
+
 
 $ source myenv/bin/activate
 $ django-admin.py startproject login ~/login
 $ python manage.py startapp home
 
+
 Update your settings to connect your database:
+
 
 DATABASES = {
     'default': {
@@ -31,18 +35,27 @@ DATABASES = {
     }
 }
 
+
 $ python manage.py makemigrations
+
 $ python manage.py migrate # to apply migrations
+
 $ python manage.py createsuperuser # to create an administrator user for yourself
+
 $ python manage.py runserver # to run the server
+
 
 # Now you can go to your localhost/admin and login. You will see google registered in social accounts and you can go to users and create new ones.
 
+
 # Docker compose testing
+
 
 You can clone the project in another directory for testing environment and use the Dockerfile and  docker-compose .yml file provided here to run your test.
 
+
 First update your database settings to:
+
 
 
 DATABASES = {
@@ -55,18 +68,24 @@ DATABASES = {
     }
 }
 
+
 and give ownership to your user for the folders with the app:
+
 
 $ sudo chown -R user:user
 
+
 use the following command to create the project:
+
 
 $ docker-compose run web django-admin.py startproject composeexample .
 
+
 Then to launch the app in your local server run:
 
+
 $ docker-compose up -e POSTGRES_PASSWORD=YOUR_PASSWORD
-Then you can run commands like so:
+
 
 To run django commands in the test environments with docker-compose you can run:
 
