@@ -1,5 +1,4 @@
-# this is django project called login and a django app called home
-# it allows administrators to log in using their google account
+# this is django project called login and a django app called home, it allows administrators to log in using their google account
 
 **Setup**
 
