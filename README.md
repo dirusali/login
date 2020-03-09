@@ -2,10 +2,14 @@
 
 **Setup**
 
-First install pip and create your environment
+First install pip and create your environment:
+
 $ sudo -H pip3 install virtualenv
+
 $ mkdir ~/login
+
 $ cd ~/login
+
 $ virtualenv myenv
 
 Activate your environment and start a django project:
