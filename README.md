@@ -2,16 +2,19 @@
 
 **Setup**
 
+First install pip and create your environment
 $ sudo -H pip3 install virtualenv
-
 $ mkdir ~/login
 $ cd ~/login
 $ virtualenv myenv
-$ source myenv/bin/activate
 
+Activate your environment and start a django project:
+
+$ source myenv/bin/activate
 $ django-admin.py startproject login ~/login
 $ python manage.py startapp home
-Update your settings to onnect your database:
+
+Update your settings to connect your database:
 
 DATABASES = {
     'default': {
