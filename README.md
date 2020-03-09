@@ -45,7 +45,7 @@ $ python manage.py createsuperuser # to create an administrator user for yoursel
 $ python manage.py runserver # to run the server
 
 
-# Now you can go to your localhost/admin and login. You will see google registered in social accounts and you can go to users and create new ones.
+Now you can go to your localhost/admin and login. You will see google registered in social accounts and you can go to users and create new ones.
 
 
 # Docker compose testing
