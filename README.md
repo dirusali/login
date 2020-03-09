@@ -1,7 +1,7 @@
 # this is django project called login and a django app called home, it allows administrators to log in using their google account
 
 **Setup**
-
+```
 First install pip and create your environment:
 
 $ sudo -H pip3 install virtualenv
@@ -11,19 +11,19 @@ $ mkdir ~/login
 $ cd ~/login
 
 $ virtualenv myenv
-
+```
 
 Activate your environment and start a django project:
 
-
+```
 $ source myenv/bin/activate
 $ django-admin.py startproject login ~/login
 $ python manage.py startapp home
-
+```
 
 Update your settings to connect your database:
 
-
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -43,7 +43,7 @@ $ python manage.py migrate # to apply migrations
 $ python manage.py createsuperuser # to create an administrator user for yourself
 
 $ python manage.py runserver # to run the server
-
+```
 
 Now you can go to your localhost/admin and login. You will see google registered in social accounts and you can go to users and create new ones.
 
@@ -57,7 +57,7 @@ You can clone the project in another directory for testing environment and use t
 First update your database settings to:
 
 
-
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -68,28 +68,29 @@ DATABASES = {
     }
 }
 
-
+```
 and give ownership to your user for the folders with the app:
 
-
+```
 $ sudo chown -R user:user
-
+```
 
 use the following command to create the project:
 
-
-$ docker-compose run web django-admin.py startproject composeexample .
-
+```
+$ docker-compose run web django-admin.py startproject login .
+```
 
 Then to launch the app in your local server run:
 
-
+```
 $ docker-compose up -e POSTGRES_PASSWORD=YOUR_PASSWORD
-
+```
 
 To run django commands in the test environments with docker-compose you can run:
 
+```
 $ docker-compose run web ... # place here your command for example manage.py migrate
-
+```
 
 
